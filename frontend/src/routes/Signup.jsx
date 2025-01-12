@@ -93,6 +93,9 @@ const Signup = () => {
               required
             />
           </div>
+          {error && (
+            <div className="text-red-500 text-sm">{error.data.message}</div>
+          )}
           {/* Submit Button */}
           <button
             type="submit"

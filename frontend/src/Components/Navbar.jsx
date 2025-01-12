@@ -13,7 +13,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     try {
       const logoutResponse = await logout();
-            if (logoutResponse.data) {
+      if (logoutResponse.data) {
         localStorage.removeItem("user");
         Cookie.remove("authToken");
         dispatch(setUser(null));

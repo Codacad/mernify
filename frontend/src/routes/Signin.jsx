@@ -26,7 +26,7 @@ const SignIn = () => {
         navigate("/dashboard");
       }
       if (signinResponse.error) {
-        console.log("Signin Error:", signinResponse.error.data);
+        console.log("Signin Error:", signinResponse.error.data.message);
       }
     } catch (error) {
       console.error("Sign In Error:", error);
@@ -76,6 +76,13 @@ const SignIn = () => {
               required
             />
           </div>
+          {
+            error && (
+              <div className="text-red-500 text-sm">
+                {error.data.message}
+              </div>
+            )
+          }
           {/* Submit Button */}
           <button
             type="submit"
