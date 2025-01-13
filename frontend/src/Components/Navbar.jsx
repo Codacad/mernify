@@ -85,7 +85,7 @@ const Navbar = () => {
       <div className="md:hidden flex justify-end items-center px-4">
         <button
           type="button"
-          className="text-white focus:outline-none"
+          className="text-blue-500 focus:outline-none"
           onClick={() =>
             document.getElementById("mobile-menu").classList.toggle("hidden")
           }
@@ -132,6 +132,7 @@ const Navbar = () => {
         {user ? (
           <Link
             to="/logout"
+            onClick={handleLogout}
             className="block md:hidden py-2 hover:text-gray-300"
           >
             Logout
