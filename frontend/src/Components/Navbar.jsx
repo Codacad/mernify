@@ -18,11 +18,18 @@ const Navbar = () => {
         Cookie.remove("authToken");
         dispatch(setUser(null));
         navigate("/");
+        handleMobileMenu();
       }
     } catch (error) {
       console.error("Logout Error:", error);
     }
   };
+
+  // Handle Moblie Menu toggle
+  const handleMobileMenu = () => {
+    document.querySelector(".mobile-menu").classList.toggle("active");
+  };
+
   return (
     <nav className="bg-gray-100 text-black grid grid-cols-2 md:grid-cols-1 justify-between items-center">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -86,9 +93,7 @@ const Navbar = () => {
         <button
           type="button"
           className="text-blue-500 focus:outline-none"
-          onClick={() =>
-            document.getElementById("mobile-menu").classList.toggle("hidden")
-          }
+          onClick={handleMobileMenu}
         >
           <svg
             className="w-6 h-6"
@@ -108,53 +113,57 @@ const Navbar = () => {
       </div>
       <div
         id="mobile-menu"
-        className="hidden md:hidden bg-gray-700 text-white p-4 col-span-2"
+        className="mobile-menu md:hidden bg-gray-700 text-white col-span-2"
       >
-        <Link to="/" className="block py-2 hover:text-gray-300">
-          Home
-        </Link>
-        <Link to="/dashboard" className="block py-2 hover:text-gray-300">
-          Dashboard
-        </Link>
-        <Link to="/profile" className="block py-2 hover:text-gray-300">
-          Profile
-        </Link>
-        <Link to="/blogs" className="block py-2 hover:text-gray-300">
-          Blogs
-        </Link>
-        <Link to="/about" className="block py-2 hover:text-gray-300">
-          About
-        </Link>
-        <Link to="/contact" className="block py-2 hover:text-gray-300">
-          Contact
-        </Link>
-
-        {user ? (
-          <Link
-            to="/logout"
-            onClick={handleLogout}
-            className="block md:hidden py-2 hover:text-gray-300"
-          >
-            Logout
+        <div className="p-4 space-y-2">
+          <Link to="/" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+            Home
           </Link>
-        ) : (
-          <>
-            <div className="mt-4 space-y-2">
-              <Link
-                to="/signup"
-                className="block bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
-              >
-                Sign Up
-              </Link>
-              <Link
-                to="/signin"
-                className="block border border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 py-2 px-4 rounded"
-              >
-                Sign In
-              </Link>
-            </div>
-          </>
-        )}
+          <Link to="/dashboard" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+            Dashboard
+          </Link>
+          <Link to="/profile" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+            Profile
+          </Link>
+          <Link to="/blogs" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+            Blogs
+          </Link>
+          <Link to="/about" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+            About
+          </Link>
+          <Link to="/contact" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+            Contact
+          </Link>
+
+          {user ? (
+            <Link
+              to="/logout"
+              onClick={handleLogout}
+              className="block md:hidden py-2 hover:text-gray-300"
+            >
+              Logout
+            </Link>
+          ) : (
+            <>
+              <div className="mt-4 space-y-2">
+                <Link
+                  to="/signup"
+                  onClick={handleMobileMenu}
+                  className="block bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded"
+                >
+                  Sign Up
+                </Link>
+                <Link
+                  to="/signin"
+                  onClick={handleMobileMenu}
+                  className="block border border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 py-2 px-4 rounded"
+                >
+                  Sign In
+                </Link>
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </nav>
   );

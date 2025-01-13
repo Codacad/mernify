@@ -2,11 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
-
-
 .grotesk {
-    font-family: "Space Grotesk", serif;
-    font-optical-sizing: auto;
-    font-weight:400;
-    font-style: normal;
+  font-family: "Space Grotesk", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.mobile-menu {
+  max-height: 0;
+    overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+
+.mobile-menu.active {
+  max-height: 100vh;
+ 
 }
