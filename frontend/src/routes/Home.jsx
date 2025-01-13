@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Testimonials from "../Components/Testimonials";
+import FeaturesHighlights from "../Components/FeaturesHighlights";
+import Footer from "../Components/Footer";
 const Home = () => {
   const { user } = useSelector((state) => state.auth);
   return (
@@ -78,6 +81,15 @@ const Home = () => {
           </Link>
         </div>
       </div>
+
+      {/* Testimonials Section */}
+      <Testimonials />
+
+      {/* Features Higglighting */}
+      <FeaturesHighlights />
+
+      {/* Footer Section */}
+      <Footer />
     </div>
   );
 };
