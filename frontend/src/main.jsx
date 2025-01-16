@@ -17,6 +17,7 @@ import Cookie from "js-cookie";
 import { Navigate } from "react-router-dom";
 import UserSignedIn from "./Components/UserSignedIn.jsx";
 import { NotFound } from "./routes/NotFound.jsx";
+import WriteBlog from "./routes/WriteBlog.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -43,6 +44,7 @@ const router = createBrowserRouter([
       { path: "/profile", element: <Profile /> },
       { path: "/blogs", element: <Blogs /> },
       { path: "/blogs/:id", element: <Blog /> },
+      { path: "/blog/create", element: <WriteBlog /> },
       { path: "/contact", element: <Contact /> },
       { path: "/about", element: <About /> },
       { path: "*", element: <NotFound /> },
