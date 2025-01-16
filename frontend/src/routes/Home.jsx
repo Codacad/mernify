@@ -87,9 +87,6 @@ const Home = () => {
 
       {/* Features Higglighting */}
       <FeaturesHighlights />
-
-      {/* Footer Section */}
-      <Footer />
     </div>
   );
 };
