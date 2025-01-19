@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { useLogoutUserMutation } from "../state/user-auth/userAuth";
 import { setUser } from "../state/user-auth/authSlice";
 import Logo from "../assets/images/logo200x100.svg";
-import Cookie from "js-cookie";
 const Navbar = () => {
   const { user } = useSelector((state) => state.auth);
   const navigate = useNavigate();
@@ -15,7 +14,6 @@ const Navbar = () => {
       const logoutResponse = await logout();
       if (logoutResponse.data) {
         localStorage.removeItem("user");
-        Cookie.remove("authToken");
         dispatch(setUser(null));
         navigate("/");
         handleMobileMenu();

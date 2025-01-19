@@ -71,8 +71,8 @@ const signin = async (req, res) => {
     );
 
     res.cookie("authToken", token, {
-      httpOnly: false,
-      secure: false,
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
       sameSite: "strict",
       maxAge: 60 * 60 * 1000,
     });
@@ -89,7 +89,11 @@ const signin = async (req, res) => {
 };
 
 const logout = async (req, res) => {
-  res.clearCookie("authToken");
+  res.clearCookie("authToken", {
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",
+    sameSite: "strict",
+  });
   res.status(200).send({ message: "Logged out successfully" });
 };
 

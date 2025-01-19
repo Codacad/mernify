@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import { data, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useGetDashboardQuery } from "../state/userData/dashboard";
 
 const Dashboard = () => {
   const [user, setUser] = useState(null);
   const { data, error, isLoading } = useGetDashboardQuery();
+  console.log(data, error)
   useEffect(() => {
     if (data) {
       setUser(data);
