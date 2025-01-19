@@ -1,55 +1,71 @@
-import React from 'react';
+import React from "react";
 
 const About = () => {
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="container mx-auto px-4 py-10">
-        {/* Header Section */}
-        <div className="text-center mb-10">
-          <h1 className="text-4xl font-bold text-blue-600 mb-4">About Us</h1>
-          <p className="text-gray-700 text-lg">
-            Learn more about our mission, values, and the services we provide.
-          </p>
-        </div>
-
-        {/* Content Section */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* Mission Section */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-blue-500 mb-4">Our Mission</h2>
-            <p className="text-gray-700">
-              Our mission is to deliver high-quality solutions that empower individuals and businesses to achieve their goals.
-              We are committed to innovation, integrity, and excellence in everything we do.
-            </p>
+    <div className="min-h-screen bg-gray-50 text-gray-900">
+      <div className="bg-gray-50 text-gray-900">
+        {/* Hero Section */}
+        <section className="text-white py-16">
+          <div className="container mx-auto px-6 flex items-center flex-col">
+            {/* Content */}
+            <div className="text-center">
+              <h1 className="text-4xl font-semibold mb-4 text-blue-500">
+                About Us
+              </h1>
+              <p className="text-lg mb-8 max-w-3xl mx-auto md:mx-0 text-gray-600">
+                We are a team of passionate professionals committed to
+                delivering high-quality solutions for individuals and
+                businesses.
+              </p>
+              <button className="bg-blue-500 text-gray-100 px-6 py-2 rounded-full font-medium">
+                Learn More
+              </button>
+            </div>
           </div>
-
-          {/* Vision Section */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-blue-500 mb-4">Our Vision</h2>
-            <p className="text-gray-700">
-              Our vision is to be a leader in our industry, fostering growth and creating opportunities for our clients and community. 
-              We strive to be a trusted partner in the digital world.
-            </p>
-          </div>
-
-          {/* Services Section */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-blue-500 mb-4">What We Do</h2>
-            <p className="text-gray-700">
-              We specialize in providing innovative solutions, including web development, software design, and IT support. 
-              Our goal is to meet your needs with exceptional service and expertise.
-            </p>
-          </div>
-
-          {/* Team Section */}
-          <div className="bg-white shadow-lg rounded-lg p-6">
-            <h2 className="text-2xl font-bold text-blue-500 mb-4">Our Team</h2>
-            <p className="text-gray-700">
-              Our team consists of skilled professionals dedicated to delivering the best results. We value collaboration, creativity, and commitment to excellence.
-            </p>
-          </div>
-        </div>
+        </section>
       </div>
+
+      {/* Team Section */}
+      <section className="py-16 bg-gray-100">
+        <div className="container mx-auto px-6 text-center">
+          <h2 className="text-3xl font-semibold text-blue-600 mb-6">
+            Meet Our Team
+          </h2>
+          <p className="text-gray-700 max-w-3xl mx-auto mb-8">
+            Our team is made up of skilled professionals who are dedicated to
+            providing the best service and solutions to our clients.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div>
+              <img
+                src="https://avatar.iran.liara.run/public/35"
+                alt="Team Member"
+                className="w-32 h-32 mx-auto rounded-full mb-4"
+              />
+              <h3 className="font-semibold text-lg">John Doe</h3>
+              <p className="text-gray-500">Software Engineer</p>
+            </div>
+            <div>
+              <img
+                src="https://avatar.iran.liara.run/public/47"
+                alt="Team Member"
+                className="w-32 h-32 mx-auto rounded-full mb-4"
+              />
+              <h3 className="font-semibold text-lg">Jane Smith</h3>
+              <p className="text-gray-500">UI/UX Designer</p>
+            </div>
+            <div>
+              <img
+                src="https://avatar.iran.liara.run/public/10"
+                alt="Team Member"
+                className="w-32 h-32 mx-auto rounded-full mb-4"
+              />
+              <h3 className="font-semibold text-lg">Alex Brown</h3>
+              <p className="text-gray-500">Project Manager</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };

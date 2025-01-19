@@ -3,6 +3,7 @@ import { useSigninMutation } from "../state/user-auth/userAuth";
 import { useNavigate } from "react-router-dom";
 import { setUser } from "../state/user-auth/authSlice";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 const SignIn = () => {
   const [signin, { data, error, isLoading }] = useSigninMutation();
   const navigate = useNavigate();
@@ -34,8 +35,8 @@ const SignIn = () => {
   };
 
   return (
-    <div className="md:min-h-screen flex mx-4 items-center my-8 justify-center bg-white">
-      <div className="bg-gray-50 shadow-lg rounded-lg p-8 max-w-md w-full">
+    <div className="md:min-h-[70vh] flex mx-4 items-center my-8 justify-center bg-white">
+      <div className="bg-gray-50 rounded-lg p-8 max-w-md w-full border-b-4 border-t-4 border-blue-500">
         <h2 className="text-2xl font-bold text-center mb-6">Sign In</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Email */}
@@ -76,13 +77,9 @@ const SignIn = () => {
               required
             />
           </div>
-          {
-            error && (
-              <div className="text-red-500 text-sm">
-                {error.data.message}
-              </div>
-            )
-          }
+          {error && (
+            <div className="text-red-500 text-sm">{error.data.message}</div>
+          )}
           {/* Submit Button */}
           <button
             type="submit"
@@ -95,12 +92,15 @@ const SignIn = () => {
         {/* Redirect to Sign Up */}
         <p className="text-sm text-center text-gray-600 mt-4">
           Don't have an account?{" "}
-          <a
-            href="/signup"
+          <Link
+            to={"/signup"}
             className="text-blue-500 hover:text-blue-600 font-medium"
           >
             Sign Up
-          </a>
+          </Link>
+        </p>
+        <p className="text-center mt-4 text-blue-500">
+          <Link to={"/forgot-password"}>Forgot Password?</Link>
         </p>
       </div>
     </div>

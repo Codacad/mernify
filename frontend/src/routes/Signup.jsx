@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useSignupMutation } from "../state/user-auth/userAuth";
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Signup = () => {
   const [signup, { data, error, isLoading }] = useSignupMutation();
   const navigate = useNavigate();
@@ -32,8 +33,8 @@ const Signup = () => {
   };
 
   return (
-    <div className="md:min-h-screen my-8 flex mx-4 items-center justify-center bg-white">
-      <div className="bg-gray-50 shadow-lg rounded-lg p-8 max-w-md w-full">
+    <div className="md:min-h-[70vh] my-8 flex mx-4 items-center justify-center bg-white">
+      <div className="bg-gray-50 rounded-lg p-8 max-w-md w-full border-b-4 border-t-4 border-blue-500">
         <h2 className="text-2xl font-bold text-center mb-6">Sign Up</h2>
         <form onSubmit={handleSubmit} className="space-y-4">
           {/* Full Name */}
@@ -108,13 +109,14 @@ const Signup = () => {
         {/* Redirect to Sign In */}
         <p className="text-sm text-center text-gray-600 mt-4">
           Already have an account?{" "}
-          <a
-            href="/signin"
+          <Link
+            to={"/signin"}
             className="text-blue-500 hover:text-blue-600 font-medium"
           >
             Sign In
-          </a>
+          </Link>
         </p>
+      
       </div>
     </div>
   );
