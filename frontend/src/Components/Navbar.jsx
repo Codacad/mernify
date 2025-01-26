@@ -28,6 +28,12 @@ const Navbar = () => {
     document.querySelector(".mobile-menu").classList.toggle("active");
   };
 
+  const handleProfileMenuToggle = () => {
+    document
+      .querySelector(".profile-menu")
+      .classList.toggle("profile-menu-active");
+  };
+
   return (
     <nav className="bg-gray-100 text-black grid grid-cols-2 md:grid-cols-1 justify-between items-center">
       <div className="container mx-auto px-4 py-3 flex items-center justify-between">
@@ -43,15 +49,11 @@ const Navbar = () => {
           <Link to="/" className="hover:text-gray-700">
             Home
           </Link>
-          <Link to="/dashboard" className="hover:text-gray-700">
-            Dashboard
-          </Link>
+
           <Link to="/blogs" className="hover:text-gray-700">
             Blogs
           </Link>
-          <Link to="/profile" className="hover:text-gray-700">
-            Profile
-          </Link>
+
           <Link to="/about" className="hover:text-gray-700">
             About
           </Link>
@@ -62,12 +64,50 @@ const Navbar = () => {
 
         {/* Buttons */}
         {user ? (
-          <button
-            onClick={handleLogout}
-            className="md:block hidden py-2 hover:text-gray-800"
-          >
-            Logout
-          </button>
+          <ul className="md:flex hidden space-x-4 items-center">
+            <li className="relative">
+              <img
+                src="https://i.pravatar.cc/300"
+                onClick={handleProfileMenuToggle}
+                className="cursor-pointer relative rounded-full overflow-hidden w-10 h-10 z-20 object-cover"
+                alt=""
+              />
+              <ul className="absolute p-2 z-20 top-12 right-0 profile-menu bg-gray-50 shadow-md rounded-md w-40 space-y-2">
+                <li className="flex items-center space-x-2">
+                  <Link
+                    to={"/dashboard"}
+                    className="p-2 w-full hover:bg-gray-200"
+                  >
+                    Dashboard
+                  </Link>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <Link
+                    to={"/profile"}
+                    className="p-2 w-full hover:bg-gray-200"
+                  >
+                    Profile
+                  </Link>
+                </li>
+                <li className="flex items-center space-x-2">
+                  <Link
+                    to={"/settings"}
+                    className="p-2 w-full hover:bg-gray-200"
+                  >
+                    Settings
+                  </Link>
+                </li>
+                <li>
+                  <button
+                    onClick={handleLogout}
+                    className="md:block hidden w-full px-4 hover:bg-gray-200 py-2 text-gray-900 hover:text-gray-950"
+                  >
+                    Logout
+                  </button>
+                </li>
+              </ul>
+            </li>
+          </ul>
         ) : (
           <div className="space-x-4 md:flex hidden">
             <Link
@@ -78,7 +118,7 @@ const Navbar = () => {
             </Link>
             <Link
               to="/signin"
-              className="border border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 py-2 px-4 rounded"
+              className="hover:bg-blue-600 border hover:text-white border-blue-600 shadow-sm text-blue-600 py-2 px-4 rounded"
             >
               Sign In
             </Link>
@@ -114,22 +154,46 @@ const Navbar = () => {
         className="mobile-menu md:hidden bg-gray-700 text-white col-span-2"
       >
         <div className="p-4 space-y-2">
-          <Link to="/" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+          <Link
+            to="/"
+            onClick={handleMobileMenu}
+            className="block py-2 hover:text-gray-300"
+          >
             Home
           </Link>
-          <Link to="/dashboard" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+          <Link
+            to="/dashboard"
+            onClick={handleMobileMenu}
+            className="block py-2 hover:text-gray-300"
+          >
             Dashboard
           </Link>
-          <Link to="/profile" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+          <Link
+            to="/profile"
+            onClick={handleMobileMenu}
+            className="block py-2 hover:text-gray-300"
+          >
             Profile
           </Link>
-          <Link to="/blogs" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+          <Link
+            to="/blogs"
+            onClick={handleMobileMenu}
+            className="block py-2 hover:text-gray-300"
+          >
             Blogs
           </Link>
-          <Link to="/about" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+          <Link
+            to="/about"
+            onClick={handleMobileMenu}
+            className="block py-2 hover:text-gray-300"
+          >
             About
           </Link>
-          <Link to="/contact" onClick={handleMobileMenu} className="block py-2 hover:text-gray-300">
+          <Link
+            to="/contact"
+            onClick={handleMobileMenu}
+            className="block py-2 hover:text-gray-300"
+          >
             Contact
           </Link>
 
