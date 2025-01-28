@@ -19,12 +19,14 @@ const Home = () => {
           <p className="text-lg mb-6">
             Your one-stop solution for secure and efficient user management.
           </p>
-          <Link
-            to="/signup"
-            className="bg-white text-blue-600 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition"
-          >
-            Get Started
-          </Link>
+          {!user && (
+            <Link
+              to="/signup"
+              className="bg-white text-blue-600 font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-gray-100 transition"
+            >
+              Get Started
+            </Link>
+          )}
         </div>
       </div>
 
@@ -72,12 +74,14 @@ const Home = () => {
           <p className="text-lg mb-6">
             Join us today and experience the future of user authentication.
           </p>
-          <Link
-            to="/signup"
-            className="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition"
-          >
-            Sign Up Now
-          </Link>
+          {!user && (
+            <Link
+              to="/signup"
+              className="bg-blue-600 text-white font-bold py-3 px-6 rounded-lg shadow-lg hover:bg-blue-700 transition"
+            >
+              Sign Up Now
+            </Link>
+          )}
         </div>
       </div>
 

@@ -1,13 +1,12 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-const UserSignedIn = ({ children, yes }) => {
+const ProtectedRoutes = ({ children }) => {
   const { user } = useSelector((state) => state.auth);
   if (user) {
-    return <Navigate to="/" />;
+    return children;
   }
-
-  return children;
+  return <Navigate to={"/signin"} />;
 };
 
-export default UserSignedIn;
+export default ProtectedRoutes;

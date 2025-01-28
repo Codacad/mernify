@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useRef} from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { useLogoutUserMutation } from "../state/user-auth/userAuth";
@@ -9,6 +9,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [logout] = useLogoutUserMutation();
+  const dropdownRef = useRef()
   const handleLogout = async () => {
     try {
       const logoutResponse = await logout();
@@ -27,12 +28,12 @@ const Navbar = () => {
   const handleMobileMenu = () => {
     document.querySelector(".mobile-menu").classList.toggle("active");
   };
-
   const handleProfileMenuToggle = () => {
-    document
-      .querySelector(".profile-menu")
-      .classList.toggle("profile-menu-active");
+    // Toggle the 'profile-menu-active' class
+    dropdownRef.current.classList.toggle("profile-menu-active");
   };
+  
+
 
   return (
     <nav className="bg-gray-100 text-black grid grid-cols-2 md:grid-cols-1 justify-between items-center">
@@ -72,7 +73,7 @@ const Navbar = () => {
                 className="cursor-pointer relative rounded-full overflow-hidden w-10 h-10 z-20 object-cover"
                 alt=""
               />
-              <ul className="absolute p-2 z-20 top-12 right-0 profile-menu bg-gray-50 shadow-md rounded-md w-40 space-y-2">
+              <ul ref={dropdownRef} className="absolute p-2 z-20 top-12 right-0 profile-menu bg-gray-50 shadow-md rounded-md w-40 space-y-2">
                 <li className="flex items-center space-x-2">
                   <Link
                     to={"/dashboard"}

@@ -18,6 +18,8 @@ import { Navigate } from "react-router-dom";
 import UserSignedIn from "./Components/UserSignedIn.jsx";
 import { NotFound } from "./routes/NotFound.jsx";
 import WriteBlog from "./routes/WriteBlog.jsx";
+import Settings from "./routes/Settings.jsx";
+import ProtectedRoutes from "./Components/ProtectedRoutes.jsx";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: "/signup",
         element: (
-          <UserSignedIn>
+          <UserSignedIn yes={true}>
             <Signup />
           </UserSignedIn>
         ),
@@ -35,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/signin",
         element: (
-          <UserSignedIn>
+          <UserSignedIn yes={true}>
             <Signin />
           </UserSignedIn>
         ),
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
       { path: "/blog/create", element: <WriteBlog /> },
       { path: "/contact", element: <Contact /> },
       { path: "/about", element: <About /> },
+      {
+        path: "/settings",
+        element: (
+          <ProtectedRoutes>
+            <Settings />
+          </ProtectedRoutes>
+        ),
+      },
       { path: "*", element: <NotFound /> },
     ],
   },
